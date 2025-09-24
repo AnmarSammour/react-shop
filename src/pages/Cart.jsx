@@ -31,18 +31,20 @@ function Cart({ cart, addToCart, removeFromCart }) {
               justifyContent: "space-between",
               border: "1px solid #ccc",
               padding: "10px",
-              borderRadius: "8px"
+              borderRadius: "8px",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
               <img
-                src={`https://react-shop-maoo.onrender.com${item.imageFront}`}
+                src={`https://react-shop-maoo.onrender.com${
+                  item.imageFront || item.image
+                }`}
                 alt={item.name}
                 style={{
                   width: "120px",
                   height: "100px",
                   objectFit: "cover",
-                  borderRadius: "12px"
+                  borderRadius: "12px",
                 }}
               />
               <div>
@@ -51,7 +53,7 @@ function Cart({ cart, addToCart, removeFromCart }) {
                   style={{
                     margin: "5px 0",
                     color: "#28857aff",
-                    fontWeight: "bold"
+                    fontWeight: "bold",
                   }}
                 >
                   Price: ${item.price}
@@ -60,7 +62,7 @@ function Cart({ cart, addToCart, removeFromCart }) {
                   style={{
                     margin: "5px 0",
                     color: "#28857aff",
-                    fontWeight: "bold"
+                    fontWeight: "bold",
                   }}
                 >
                   Subtotal: ${(item.price * item.quantity).toFixed(2)}
@@ -74,7 +76,7 @@ function Cart({ cart, addToCart, removeFromCart }) {
                   padding: "5px 10px",
                   width: "60px",
                   backgroundColor: "#3fb4a6ff",
-                  color: "white"
+                  color: "white",
                 }}
               >
                 -
@@ -86,7 +88,7 @@ function Cart({ cart, addToCart, removeFromCart }) {
                   padding: "5px 10px",
                   width: "60px",
                   backgroundColor: "#3fb4a6ff",
-                  color: "white"
+                  color: "white",
                 }}
               >
                 +
@@ -112,7 +114,7 @@ function Cart({ cart, addToCart, removeFromCart }) {
             borderRadius: "6px",
             cursor: "pointer",
             fontSize: "16px",
-            marginLeft: "-20px"
+            marginLeft: "-20px",
           }}
         >
           Continue to Checkout
