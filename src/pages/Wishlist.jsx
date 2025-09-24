@@ -33,7 +33,7 @@ const Wishlist = () => {
             }}
           >
             <img
-              src={`https://react-workshop-jyvm.onrender.com${product.image || product.imageFront}`}
+              src={`https://react-shop-maoo.onrender.com${product.image || product.imageFront}`}
               alt={product.name}
               style={{ width: "100%", height: "150px", objectFit: "contain" }}
             />

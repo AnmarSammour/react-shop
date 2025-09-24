@@ -58,7 +58,7 @@ const ProductCard = ({ product }) => {
             <div className="card-img-container rounded">
               {imageFront && (
                 <img
-                  src={`https://react-workshop-yo7n.onrender.com${imageFront}`}
+                  src={`https://react-shop-maoo.onrender.com${imageFront}`}
                   alt={name}
                   style={{ maxHeight: "100%", maxWidth: "100%" }}
                 />
@@ -138,7 +138,7 @@ const BestSellerCard = ({ product, addToCart }) => {
             <div className="card-img-container rounded">
               {imageFront && (
                 <img
-                  src={`https://react-workshop-yo7n.onrender.com${imageFront}`}
+                  src={`https://react-shop-maoo.onrender.com${imageFront}`}
                   alt={name}
                   style={{ maxHeight: "100%", maxWidth: "100%" }}
                 />
@@ -252,7 +252,7 @@ const CategoryCard = ({ name, count, imageUrl, isLarge = false }) => (
     <div className="category-card-image d-flex align-items-center justify-content-center rounded-2 me-0 mb-3">
       {imageUrl && (
         <img
-          src={`https://react-workshop-yo7n.onrender.com${imageUrl}`}
+          src={`https://react-shop-maoo.onrender.com${imageUrl}`}
           alt={name}
           style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
         />
@@ -326,7 +326,7 @@ const FeaturedDeal = ({ product }) => {
             style={{ height: "256px" }}
           >
             <img
-              src={`https://react-workshop-yo7n.onrender.com${imageFront}`}
+              src={`https://react-shop-maoo.onrender.com${imageFront}`}
               alt={name}
               style={{ maxHeight: "100%", maxWidth: "100%" }}
             />
@@ -675,7 +675,7 @@ const HomePage = ({ addToCart }) => {
 
   useEffect(() => {
     axios
-      .get("https://react-workshop-yo7n.onrender.com/api/products")
+      .get("https://react-shop-maoo.onrender.com/api/products")
       .then((res) => {
         const allProducts = res.data || [];
         setProducts(allProducts);

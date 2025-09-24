@@ -26,7 +26,7 @@ const decrease = () => removeFromCart(id);
     }}>
       <div style={{ position: 'relative', width: '100%', paddingTop: '72.5%', marginBottom: '10px' }}>
         <img 
-          src={`https://react-workshop-jyvm.onrender.com${image}`} 
+          src={`https://react-shop-maoo.onrender.com${image}`} 
           alt={name} 
           style={{ 
             position: 'absolute',
@@ -90,7 +90,7 @@ function Shop({cart, addToCart, removeFromCart}) {
   const [priceRange, setPriceRange] = useState({ min: '', max: '' });
 
   useEffect(() => {
-    axios.get('https://react-workshop-jyvm.onrender.com/api/products')
+    axios.get('https://react-shop-maoo.onrender.com/api/products')
       .then(res => {
         const productsWithBrandCategory = res.data.map(p => {
           let brand = 'Other';

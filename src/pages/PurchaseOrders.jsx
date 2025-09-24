@@ -39,7 +39,7 @@ useEffect(() => {
 
   useEffect(() => {
     let mounted = true;
-    axios.get('https://react-workshop-jyvm.onrender.com/api/products')
+    axios.get('https://react-shop-maoo.onrender.com/api/products')
       .then(res => { if (mounted) setRelatedProducts(res.data || []); })
       .catch(err => console.error('Failed to fetch related products', err));
     return () => { mounted = false; };
@@ -149,7 +149,7 @@ const handleCopyLink = () => {
               {images.map((img, i) => (
                 <img
                   key={i}
-                  src={`https://react-workshop-jyvm.onrender.com${img}`}
+                  src={`https://react-shop-maoo.onrender.com${img}`}
                   alt={`${product.name}-${i}`}
                   onClick={() => handleThumbClick(img)}
                   style={{
