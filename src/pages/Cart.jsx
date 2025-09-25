@@ -21,23 +21,23 @@ function Cart({ cart, addToCart, removeFromCart }) {
       <h2>
         <b>Shopping Cart</b>
       </h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <div className="d-flex flex-column gap-3">
         {cart.map((item) => (
           <div
             key={item.id}
+            // إعطاء responsive flex عبر Bootstrap
+            className="d-flex flex-column flex-md-row align-items-md-center justify-content-between"
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
               border: "1px solid #ccc",
               padding: "10px",
               borderRadius: "8px",
+              gap: "20px",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+            {/* صورة واسم وسعر */}
+            <div className="d-flex align-items-center gap-3 flex-grow-1">
               <img
-                src={`https://react-shop-maoo.onrender.com
-                  ${
+                src={`https://react-shop-maoo.onrender.com${
                   item.imageFront || item.image
                 }`}
                 alt={item.name}
@@ -70,7 +70,14 @@ function Cart({ cart, addToCart, removeFromCart }) {
                 </p>
               </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+            {/* أزرار الكمية */}
+            <div
+              className="d-flex align-items-center justify-content-center"
+              style={{
+                gap: "20px",
+                marginTop: "15px"
+              }}
+            >
               <button
                 onClick={() => removeFromCart(item.id)}
                 style={{

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useWishlist } from "../context/WishlistContext";
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -20,10 +19,10 @@ import {
 function Navbar({ cart, addToCart, removeFromCart, shopCategories = [] })  {
   const navigate = useNavigate();
   const { wishlist } = useWishlist();
-const totalWishlistItems = wishlist.length;
-const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
-const [showCategories, setShowCategories] = useState(false);
+  const totalWishlistItems = wishlist.length;
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
+  const [showCategories, setShowCategories] = useState(false);
   return (
     <header className="site-header position-fixed fixed-top">
       {/* Top Strip */}
@@ -35,7 +34,6 @@ const [showCategories, setShowCategories] = useState(false);
           </span>
         </div>
       </div>
-
       {/* Link Items */}
       <div className="linkItems border-bottom d-none d-lg-block">
         <div className="container d-flex justify-content-between align-items-center pt-2">
@@ -136,82 +134,82 @@ const [showCategories, setShowCategories] = useState(false);
                 <User size={16} />
               </div>
 
-              {/* Wishlist Icon */}
-<div
-  className="wishlist-wrapper ms-3 d-flex align-items-center justify-content-center"
-  style={{ cursor: 'pointer', position: 'relative', width: '30px', height: '30px' }}
-  onClick={() => navigate("/wishlist")}
->
-  <FontAwesomeIcon 
-    icon={faHeart} 
-    size="lg" 
-    color="#e93260ff" 
-    style={{ fontSize:'35px' }} 
-  />
-  {totalWishlistItems > 0 && (
-    <span
-      style={{
-        position: 'absolute',
-        top: '-6px',
-        right: '-6px',
-        backgroundColor: '#ffeef2ff',
-        color: '#e93260ff',
-        borderRadius: '50%',
-        padding: '2px 6px',
-        fontSize: '10px',
-        fontWeight: 'bold'
-      }}
-    >
-      {totalWishlistItems}
-    </span>
-  )}
-</div>
+              <div
+                className="wishlist-wrapper ms-3 d-none d-lg-flex align-items-center justify-content-center"
+                style={{ cursor: 'pointer', position: 'relative', width: '30px', height: '30px' }}
+                onClick={() => navigate("/wishlist")}
+              >
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  size="lg"
+                  color="#e93260ff"
+                  style={{ fontSize: '35px' }}
+                />
+                {totalWishlistItems > 0 && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: '-6px',
+                      right: '-6px',
+                      backgroundColor: '#ffeef2ff',
+                      color: '#e93260ff',
+                      borderRadius: '50%',
+                      padding: '2px 6px',
+                      fontSize: '10px',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    {totalWishlistItems}
+                  </span>
+                )}
+              </div>
 
               <Link to="/cart" style={{ textDecoration: 'none' }}>
-  <div className="cart-wrapper" style={{ cursor: 'pointer' }}>
-    <div className="cart rounded-circle position-relative d-flex justify-content-center align-items-center">
-      <div className="count rounded-circle top-0 end-0 position-absolute text-white d-flex justify-content-center align-items-center">
-        {totalItems}
-      </div>
-      <Cart size={16} />
-    </div>
-    <div className="price">${totalPrice}</div>
-  </div>
-</Link>
+                <div className="cart-wrapper" style={{ cursor: 'pointer' }}>
+                  <div className="cart rounded-circle position-relative d-flex justify-content-center align-items-center">
+                    <div className="count rounded-circle top-0 end-0 position-absolute text-white d-flex justify-content-center align-items-center">
+                      {totalItems}
+                    </div>
+                    <Cart size={16} />
+                  </div>
+                  <div className="price">${totalPrice}</div>
+                </div>
+              </Link>
             </div>
           </nav>
         </div>
       </div>
 
+
       {/* Bottom Nav for LG */}
       <nav className="nav-bar d-none d-lg-block">
         <div className="container d-flex justify-content-between">
-          <button 
-  className="all-categories ms-lg-3 px-3 d-flex justify-content-between align-items-center position-relative"
-  onClick={() => setShowCategories(!showCategories)}
->
-  <div className="d-flex gap-3 align-items-center">
-    <span className="pb-1">
-      <Team />
-    </span>
-    <span>ALL CATEGORIES</span>
-  </div>
-  <span>
-    <AngleDown size={10} color="#fff" />
-  </span>
-  <span className="position-absolute ms-4 border border-1 border-white rounded-5 TotalProduct px-1">
-    TOTAL 84 PRODUCTS
-  </span>
-</button>
-{showCategories && (
-  <div className="all-categories-dropdown position-absolute bg-white shadow p-2 mt-2 rounded">
-    {shopCategories.map(cat => (
-      <div key={cat} className="category-item px-2 py-1 hover:bg-gray-100 cursor-pointer">
-        {cat}
-      </div>
-    ))}
-  </div>
-)}
+          <button
+            className="all-categories ms-lg-3 px-3 d-flex justify-content-between align-items-center position-relative"
+            onClick={() => setShowCategories(!showCategories)}
+          >
+            <div className="d-flex gap-3 align-items-center">
+              <span className="pb-1">
+                <Team />
+              </span>
+              <span>ALL CATEGORIES</span>
+            </div>
+            <span>
+              <AngleDown size={10} color="#fff" />
+            </span>
+            <span className="position-absolute ms-4 border border-1 border-white rounded-5 TotalProduct px-1">
+              TOTAL 84 PRODUCTS
+            </span>
+          </button>
+          {showCategories && (
+            <div className="all-categories-dropdown position-absolute bg-white shadow p-2 mt-2 rounded">
+              {shopCategories.map(cat => (
+                <div key={cat} className="category-item px-2 py-1 hover:bg-gray-100 cursor-pointer">
+                  {cat}
+                </div>
+              ))}
+            </div>
+          )}
           {/* Nav links moved inside collapse for mobile */}
           <ul className="navbar-nav flex-row gap-2">
             <li className="nav-item">
@@ -341,7 +339,6 @@ const [showCategories, setShowCategories] = useState(false);
                 SHOP
               </NavLink>
             </li>
-          
             <li className="nav-item">
               <NavLink
                 to="/bakery"
@@ -392,6 +389,32 @@ const [showCategories, setShowCategories] = useState(false);
                 ABOUT US
               </NavLink>
             </li>
+            {/* هنا رمز القلب لقائمة الامنيات على الجوال فقط */}
+            <li className="nav-item d-flex align-items-center gap-2">
+              <span>
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  color="#e93260ff"
+                  style={{ fontSize: '23px', verticalAlign: 'middle', cursor: 'pointer' }}
+                  onClick={() => navigate("/wishlist")}
+                />
+              </span>
+              <NavLink
+                to="/wishlist"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active-link" : ""}`
+                }
+                style={{ display: 'inline', verticalAlign: 'middle' }}
+              >
+                Wishlist
+                {totalWishlistItems > 0 && (
+                  <span
+                    style={{ marginLeft: "5px", fontSize: "12px", color: "#e93260ff", fontWeight: "bold" }}>
+                    {totalWishlistItems}
+                  </span>
+                )}
+              </NavLink>
+            </li>
           </ul>
           <hr />
           <ul className="list-unstyled mobile-secondary-links">
@@ -401,9 +424,6 @@ const [showCategories, setShowCategories] = useState(false);
               </a>
             </li>
             <li>
-              <a className="nav-link" href="#wishlist">
-                Wishlist
-              </a>
             </li>
           </ul>
           <hr />

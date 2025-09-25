@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
@@ -7,7 +6,6 @@ import banner from "../images/banner.png";
 import blog3 from "../images/blog-3.jpg";
 import blog5 from "../images/blog-5.jpg";
 import blog1 from "../images/blog-1.jpg";
-
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -36,8 +34,8 @@ const Blog = () => {
       });
   }, []);
 
- const images = [blog3, blog5];
-const images2 = [blog3, blog5, blog1];
+  const images = [blog3, blog5];
+  const images2 = [blog3, blog5, blog1];
 
   const thumbnailTitles = [
     "But I must explain to you how all this mistaken idea",
@@ -50,138 +48,6 @@ const images2 = [blog3, blog5, blog1];
 
   return (
     <>
-      <style>
-        {`
-          @media (min-width: 769px) {
-            .recent-posts .thumbnail-title {
-              display: -webkit-box;
-              -webkit-line-clamp: 2;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              line-height: 1.2em;
-              max-height: 2.4em;
-              width: 75%;
-            }
-            .social-media .btn {
-              width: 75%;
-            }
-            .tags-container {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 10px;
-              width: 75%;
-            }
-            .tags-container a {
-              flex: 0 0 calc(33.33% - 10px); /* 3 tags per row */
-              max-width: calc(33.33% - 10px);
-              text-align: center;
-              padding: 3px;
-              font-size: 0.85rem;
-            }
-          }
-          @media (max-width: 768px) {
-            .main-content img {
-              height: 400px;
-            }
-            .recent-posts img {
-              width: 50px !important;
-              height: 50px !important;
-              border-radius: 50% !important;
-              object-fit: cover !important;
-            }
-            .recent-posts span {
-              width: 16px;
-              height: 16px;
-              font-size: 0.5rem;
-            }
-            .recent-posts .thumbnail-title {
-              display: none;
-            }
-            .sidebar {
-              font-size: 0.9rem;
-            }
-            .sidebar h5 {
-              font-size: 1.1rem;
-            }
-            .sidebar .btn {
-              font-size: 0.85rem;
-              padding: 0.6rem;
-            }
-            .sidebar img {
-              height: auto;
-            }
-            .recent-posts li {
-              display: flex;
-              justify-content: center;
-            }
-            .tags-container {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 10px;
-            }
-            .tags-container a {
-              flex: 0 0 calc(50% - 10px); /* 2 tags per row on tablet */
-              max-width: calc(50% - 10px);
-              text-align: center;
-            }
-          }
-          @media (max-width: 576px) {
-            .main-content img {
-              height: 300px;
-            }
-            .recent-posts img {
-              width: 50px !important;
-              height: 50px !important;
-              border-radius: 50% !important;
-              object-fit: cover !important;
-            }
-            .recent-posts span {
-              width: 14px;
-              height: 14px;
-              font-size: 0.5rem;
-            }
-            .recent-posts .thumbnail-title {
-              display: none;
-            }
-            .sidebar {
-              font-size: 0.85rem;
-            }
-            .sidebar h5 {
-              font-size: 1rem;
-            }
-            .sidebar .btn {
-              font-size: 0.8rem;
-              padding: 0.5rem;
-            }
-            .sidebar img {
-              height: auto;
-            }
-            .recent-posts li {
-              display: flex;
-              justify-content: center;
-            }
-            .tags-container {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 10px;
-            }
-            .tags-container a {
-              flex: 0 0 100%; /* 1 tag per row on mobile */
-              max-width: 100%;
-              text-align: center;
-            }
-          }
-          .recent-posts {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-          }
-          .recent-posts li {
-            margin-bottom: 10px;
-          }
-        `}
-      </style>
       <div className="container my-5">
         <div className="row g-4 flex-row">
           {/* Main Content */}
@@ -255,37 +121,42 @@ const images2 = [blog3, blog5, blog1];
               <div className="d-flex flex-column gap-2">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
                   className="btn btn-primary d-flex align-items-center justify-content-center">
-                  <i className="bi bi-facebook me-2"></i> FACEBOOK
+                  <i className="bi bi-facebook"></i>
+                  <span className="d-none d-sm-inline ms-2">FACEBOOK</span>
                 </a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                  className="btn d-flex align-items-center justify-content-center" 
+                  className="btn d-flex align-items-center justify-content-center"
                   style={{
-                   background: 'linear-gradient(45deg, #fd1d1d, #fcb045, #833ab4)',
-                   color: 'black'}}>
-                  <i className="bi bi-instagram me-2"></i> INSTAGRAM
+                    background: 'linear-gradient(45deg, #fd1d1d, #fcb045, #833ab4)',
+                    color: 'black'}}>
+                  <i className="bi bi-instagram"></i>
+                  <span className="d-none d-sm-inline ms-2">INSTAGRAM</span>
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                className="btn d-flex align-items-center justify-content-center"
-                style={{
-                  backgroundColor: '#1da1f2',
-                  color: 'white',
-                  border: 'none'
-                }}>
-                <i className="bi bi-twitter me-2"></i> TWITTER
-              </a>
-                     <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
+                  className="btn d-flex align-items-center justify-content-center"
+                  style={{
+                    backgroundColor: '#1da1f2',
+                    color: 'white',
+                    border: 'none'
+                  }}>
+                  <i className="bi bi-twitter"></i>
+                  <span className="d-none d-sm-inline ms-2">TWITTER</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
                   className="btn d-flex align-items-center justify-content-center"
                   style={{
                     background: '#2c2a26ff',
                     color: 'white',
                     border: 'none'
                   }}>
-                  <i className="bi bi-tiktok me-2"></i> TIKTOK
+                  <i className="bi bi-tiktok"></i>
+                  <span className="d-none d-sm-inline ms-2">TIKTOK</span>
                 </a>
                 <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer"
                   className="btn d-flex align-items-center justify-content-center"
-                   style={{backgroundColor: 'red', color: 'white'}}>
-                  <i className="bi bi-pinterest me-2"></i> PINTEREST
+                  style={{backgroundColor: 'red', color: 'white'}}>
+                  <i className="bi bi-pinterest"></i>
+                  <span className="d-none d-sm-inline ms-2">PINTEREST</span>
                 </a>
               </div>
             </div>
@@ -299,13 +170,12 @@ const images2 = [blog3, blog5, blog1];
                 className="w-75 rounded-2"
               />
             </div>
-
             {/* Tags */}
             <div className="p-3">
               <h5 className="fw-bold mb-3">TAGS</h5>
               <div className="tags-container">
                 {['ecommerce', 'food', 'grocery', 'kithome', 'organic', 'shop', 
-                'shopify', 'store'].map((tag) => (
+                  'shopify', 'store'].map((tag) => (
                   <a
                     key={tag}
                     href={`/tags/${tag}`}
