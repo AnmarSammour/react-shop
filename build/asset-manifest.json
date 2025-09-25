@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/react-shop/static/css/main.9c6add10.css",
+    "main.js": "/react-shop/static/js/main.c2439527.js",
+    "static/js/453.d70e5463.chunk.js": "/react-shop/static/js/453.d70e5463.chunk.js",
+    "static/media/about.png": "/react-shop/static/media/about.4368da78f546d53349c5.png",
+    "static/media/hero-background.png": "/react-shop/static/media/hero-background.ed94ba34aca2578a5c36.png",
+    "static/media/blog-5.jpg": "/react-shop/static/media/blog-5.9d8ee326e15a05e791c8.jpg",
+    "static/media/blog-3.jpg": "/react-shop/static/media/blog-3.5bf0e081416dfb287c8c.jpg",
+    "static/media/about-people.png": "/react-shop/static/media/about-people.6fe3d86aada099dfd2a0.png",
+    "static/media/SideBar.jpg": "/react-shop/static/media/SideBar.dc52da2ad436910350d7.jpg",
+    "static/media/news2.png": "/react-shop/static/media/news2.c815684d6ab31e5a7e62.png",
+    "static/media/news3.png": "/react-shop/static/media/news3.992ac0e31ccb5a805426.png",
+    "static/media/news1.png": "/react-shop/static/media/news1.15b3a506b59f922e43f7.png",
+    "static/media/bootstrap-icons.woff?": "/react-shop/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/Second.jpg": "/react-shop/static/media/Second.f54f59cbae6d6991cefe.jpg",
+    "static/media/banner-1.png": "/react-shop/static/media/banner-1.05116845cba99e6fae87.png",
+    "static/media/bootstrap-icons.woff2?": "/react-shop/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "static/media/banner-2.png": "/react-shop/static/media/banner-2.a09b426ccff3814517e0.png",
+    "static/media/banner.png": "/react-shop/static/media/banner.374fa6397a9cc2540830.png",
+    "static/media/smallbanners1.png": "/react-shop/static/media/smallbanners1.527e56e82aaae949538c.png",
+    "static/media/smallbanners3.png": "/react-shop/static/media/smallbanners3.eb65eecb4dc762d4fea9.png",
+    "static/media/smallbanners2.png": "/react-shop/static/media/smallbanners2.e91cf0610f22f58d1570.png",
+    "index.html": "/react-shop/index.html",
+    "main.9c6add10.css.map": "/react-shop/static/css/main.9c6add10.css.map",
+    "main.c2439527.js.map": "/react-shop/static/js/main.c2439527.js.map",
+    "453.d70e5463.chunk.js.map": "/react-shop/static/js/453.d70e5463.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c6add10.css",
+    "static/js/main.c2439527.js"
+  ]
+}
