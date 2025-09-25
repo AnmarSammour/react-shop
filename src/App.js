@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Blog from './pages/Blog';
 import Home from './pages/Home';
 import Shop from './pages/Shop'; 
@@ -53,7 +53,7 @@ function App() {
 
   return (
     <WishlistProvider>
-      <Router>
+      <Router basename="/react-shop">
         <div className="App">
           <Navbar cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />
           <main>
