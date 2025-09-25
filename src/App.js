@@ -13,7 +13,6 @@ import "./App.css";
 import { useState, useEffect } from 'react';
 import { WishlistProvider } from "./context/WishlistContext";
 import ScrollToTop from "./components/ScrollToTop";
-import PurchaseOrders from "./pages/PurchaseOrders";
 function App() {
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
@@ -24,7 +23,7 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product, quantity) => {
+  const addToCart = (product) => {
     setCart(prevCart => {
       const existing = prevCart.find(item => item.id === product.id);
       if (existing) {
@@ -32,7 +31,7 @@ function App() {
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
-        return [...prevCart, { ...product, quantity }];
+        return [...prevCart, { ...product, quantity: 1 }];
       }
     });
   };
@@ -72,7 +71,6 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />} />
               <Route path="/wishlist" element={<Wishlist />} />
-              <Route path="/purchase-orders" element={<PurchaseOrders addToCart={addToCart} />} />
             </Routes>
           </main>
           <Footer />
