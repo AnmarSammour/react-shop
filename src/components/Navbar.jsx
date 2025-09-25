@@ -38,16 +38,7 @@ function Navbar({ cart, addToCart, removeFromCart, shopCategories = [] })  {
       <div className="linkItems border-bottom d-none d-lg-block">
         <div className="container d-flex justify-content-between align-items-center pt-2">
           <ul className="d-flex list-unstyled mb-0">
-            <li className="px-2">
-              <a className="nav-link" href="#compare">
-                Compare
-              </a>
-            </li>
-            <li className="px-2">
-              <a className="nav-link" href="#wishlist">
-                Wishlist
-              </a>
-            </li>
+           
           </ul>
           <ul className="d-flex justify-content-between list-unstyled mb-0">
             <li className="px-2">
@@ -418,11 +409,7 @@ function Navbar({ cart, addToCart, removeFromCart, shopCategories = [] })  {
           </ul>
           <hr />
           <ul className="list-unstyled mobile-secondary-links">
-            <li>
-              <a className="nav-link" href="#compare">
-                Compare
-              </a>
-            </li>
+           
             <li>
             </li>
           </ul>
