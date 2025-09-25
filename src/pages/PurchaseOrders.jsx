@@ -14,7 +14,7 @@ import {
   Bakery,
   Beverages,
   Team,
-} from "./icon";
+} from "../components/icon";
 
 function Navbar({ cart, addToCart, removeFromCart, shopCategories = [] })  {
   const navigate = useNavigate();
