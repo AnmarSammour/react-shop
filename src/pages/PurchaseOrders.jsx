@@ -29,6 +29,15 @@ function PurchaseOrders({ product, onClose, addToCart }) {
 
   useEffect(() => {
     if (product) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [product]);
+
+  useEffect(() => {
+    if (product) {
       const availableImages = [
         product.image,
         product.imageFront,
@@ -60,7 +69,7 @@ function PurchaseOrders({ product, onClose, addToCart }) {
   );
   const displayedRelated = relatedByTags.length > 0 ? relatedByTags : relatedProducts.filter(p => p.id !== product.id);
 
-  const visibleCount = isMobile ? 3 : 5;
+  const visibleCount = isMobile ? 2 : 5;
 
   const handleThumbClick = (img) => setMainImage(img);
 
@@ -101,7 +110,7 @@ function PurchaseOrders({ product, onClose, addToCart }) {
       border: 'none', fontSize: '22px', cursor: 'pointer', zIndex: 10, color: '#777'
     },
     mainContent: {
-      display: 'flex', gap: '25px',
+      display: 'flex', gap: '20px',
       flexDirection: isMobile ? 'column' : 'row'
     },
     imageSection: {
@@ -110,19 +119,19 @@ function PurchaseOrders({ product, onClose, addToCart }) {
     },
     thumbnails: {
       display: 'flex', gap: '8px',
-      flexDirection: 'row',
-      justifyContent: 'center',
+      flexDirection: isMobile ? 'row' : 'column',
+      justifyContent: isMobile ? 'center' : 'flex-start',
       flexWrap: 'wrap',
       order: isMobile ? 2 : 1
     },
     thumbnailImage: (img) => ({
-      width: '50px', height: '50px', objectFit: 'contain', cursor: 'pointer',
+      width: isMobile ? '50px' : '60px', height: isMobile ? '50px' : '60px', objectFit: 'contain', cursor: 'pointer',
       border: mainImage === img ? '2px solid #35AFA0' : '1px solid #ddd',
       borderRadius: '6px', background: '#fff', padding: '4px'
     }),
     mainImageContainer: {
       flex: 1, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      border: isMobile ? 'none' : '1px solid #eee', borderRadius: '8px', padding: '10px',
+      border: '1px solid #eee', borderRadius: '8px', padding: '10px',
       height: isMobile ? 'auto' : '350px',
       width: isMobile ? '100%' : '350px',
       aspectRatio: isMobile ? 'auto' : '1 / 1',
@@ -139,7 +148,7 @@ function PurchaseOrders({ product, onClose, addToCart }) {
       display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555'
     },
     detailsSection: {
-      flex: '1 1 55%', display: 'flex', flexDirection: 'column', gap: '14px'
+      flex: '1 1 55%', display: 'flex', flexDirection: 'column', gap: '12px'
     },
     productName: { margin: 0, fontSize: '20px', fontWeight: '600' },
     price: { fontSize: '17px', fontWeight: '700', color: '#222' },
@@ -167,7 +176,7 @@ function PurchaseOrders({ product, onClose, addToCart }) {
       justifyContent: 'center', gap: '8px', fontSize: '13px'
     },
     relatedSection: {
-      marginTop: '25px', paddingTop: '20px', borderTop: '1px solid #f0f0f0'
+      marginTop: '25px'
     },
     relatedGrid: {
       display: 'grid', gap: '12px',
@@ -175,15 +184,22 @@ function PurchaseOrders({ product, onClose, addToCart }) {
     },
     relatedCard: {
       border: '1px solid #eee', borderRadius: '8px', padding: '8px', background: '#fff',
-      display: 'flex', flexDirection: 'column', position: 'relative'
+      display: 'flex', flexDirection: 'column'
+    },
+    relatedImageContainer: {
+        position: 'relative',
+        width: '100%',
+        height: '90px',
+        marginBottom: '8px'
     },
     relatedImage: {
-      width: '100%', height: '90px', objectFit: 'contain', marginBottom: '8px'
+      width: '100%', height: '100%', objectFit: 'contain'
     },
     relatedAddBtn: {
-      position: 'absolute', top: '8px', right: '8px', background: '#35AFA0',
-      color: '#fff', border: 'none', borderRadius: '50%', width: '26px', height: '26px',
-      cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
+      position: 'absolute', bottom: '0px', right: '0px', background: '#35AFA0',
+      color: '#fff', border: 'none', borderRadius: '50%', width: '28px', height: '28px',
+      cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+      transform: 'translate(25%, 25%)'
     }
   };
 
@@ -194,15 +210,6 @@ function PurchaseOrders({ product, onClose, addToCart }) {
 
         <div style={styles.mainContent}>
           <div style={styles.imageSection}>
-            <div style={styles.mainImageContainer}>
-              {images.length > 1 && (
-                <button onClick={handlePrevImage} style={{ ...styles.navButton, left: '10px' }} aria-label="Previous">‹</button>
-              )}
-              <img src={getImageUrl(mainImage)} alt={product.name} style={styles.mainImage} />
-              {images.length > 1 && (
-                <button onClick={handleNextImage} style={{ ...styles.navButton, right: '10px' }} aria-label="Next">›</button>
-              )}
-            </div>
             <div style={styles.thumbnails}>
               {images.map((img, i) => (
                 <img
@@ -214,11 +221,20 @@ function PurchaseOrders({ product, onClose, addToCart }) {
                 />
               ))}
             </div>
+            <div style={styles.mainImageContainer}>
+              {images.length > 1 && (
+                <button onClick={handlePrevImage} style={{ ...styles.navButton, left: '10px' }} aria-label="Previous">‹</button>
+              )}
+              <img src={getImageUrl(mainImage)} alt={product.name} style={styles.mainImage} />
+              {images.length > 1 && (
+                <button onClick={handleNextImage} style={{ ...styles.navButton, right: '10px' }} aria-label="Next">›</button>
+              )}
+            </div>
           </div>
 
           <div style={styles.detailsSection}>
             <h2 style={styles.productName}>{product.name}</h2>
-            <p style={styles.price}>${displayPrice}</p>
+            <p style={{...styles.price, margin: 0 }}>${displayPrice}</p>
             
             <div>
               <div style={{ fontWeight: 500, marginBottom: '8px', fontSize: '13px' }}>Available in:</div>
@@ -257,7 +273,7 @@ function PurchaseOrders({ product, onClose, addToCart }) {
             </div>
 
             <div>
-              <div style={{ fontWeight: 600, marginBottom: '5px', fontSize: '13px' }}>Product Details</div>
+              <div style={{ fontWeight: 600, marginBottom: '4px', fontSize: '13px' }}>Product Details</div>
               <p style={{ margin: 0, color: '#666', fontSize: '12px', lineHeight: '1.6', maxHeight: showFullDesc ? 'none' : '36px', overflow: 'hidden' }}>
                 {product.description}
               </p>
@@ -278,7 +294,12 @@ function PurchaseOrders({ product, onClose, addToCart }) {
               <div style={styles.relatedGrid}>
                 {displayedRelated.slice(startIndex, startIndex + visibleCount).map(rel => (
                   <div key={rel.id} style={styles.relatedCard}>
-                    <img src={getImageUrl(rel.imageFront || rel.image)} alt={rel.name} style={styles.relatedImage} />
+                    <div style={styles.relatedImageContainer}>
+                        <img src={getImageUrl(rel.imageFront || rel.image)} alt={rel.name} style={styles.relatedImage} />
+                        <button style={styles.relatedAddBtn} aria-label={`Add ${rel.name} to cart`}>
+                            <FontAwesomeIcon icon={faPlus} size="xs" />
+                        </button>
+                    </div>
                     <div style={{ marginTop: 'auto' }}>
                       <div style={{ fontWeight: 500, fontSize: '13px', marginBottom: '4px' }}>{rel.name}</div>
                       <div>
@@ -286,9 +307,6 @@ function PurchaseOrders({ product, onClose, addToCart }) {
                           <span style={{ color: '#222', fontWeight: 700, fontSize: '13px' }}>${rel.price.toFixed(2)}</span>
                       </div>
                     </div>
-                    <button style={styles.relatedAddBtn} aria-label={`Add ${rel.name} to cart`}>
-                      <FontAwesomeIcon icon={faPlus} size="xs" />
-                    </button>
                   </div>
                 ))}
               </div>
