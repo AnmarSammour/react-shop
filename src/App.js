@@ -12,7 +12,7 @@ import Cart from './pages/Cart';
 import "./App.css"; 
 import { useState, useEffect } from 'react';
 import { WishlistProvider } from "./context/WishlistContext";
-
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
@@ -54,11 +54,13 @@ function App() {
   return (
     <WishlistProvider>
       <Router basename="/react-shop">
+        <ScrollToTop />
         <div className="App">
           <Navbar cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />
           <main>
             <Routes>
-              <Route path="/" element={ <Home cart={cart}addToCart={addToCart}removeFromCart={removeFromCart}/>}/>
+              <Route path="/" element={<Home cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>} />
+              <Route path="/home" element={<Home cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>} />              
               <Route path="/shop" element={<Shop cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />} />
               <Route path="/meats" element={<Shop cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />} />
               <Route path="/bakery" element={<Shop cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />} />
