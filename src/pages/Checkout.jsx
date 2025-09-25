@@ -675,10 +675,10 @@ const OrderSummary = () => {
                 style={{ width: "55px", height: "55px" }}
               >
                 <img
-                  src={`https://react-shop-maoo.onrender.com${item.image}`}
-                  alt={item.name}
-                  className="w-100 h-100 object-fit-cover"
-                />
+  src={`https://react-shop-maoo.onrender.com${item.image || item.imageFront || item.imageBack}`}
+  alt={item.name}
+  className="w-100 h-100 object-fit-cover"
+/>
                 <span className="badge position-absolute top-0 end-0">
                   {item.quantity}
                 </span>
